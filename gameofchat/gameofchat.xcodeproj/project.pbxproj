@@ -11,6 +11,8 @@
 		51A539AD1F096373002B20CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A539AC1F096373002B20CB /* ViewController.swift */; };
 		51A539B21F096373002B20CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51A539B11F096373002B20CB /* Assets.xcassets */; };
 		51A539B51F096373002B20CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51A539B31F096373002B20CB /* LaunchScreen.storyboard */; };
+		52E411CB1F09F5DB00755721 /* LogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E411CA1F09F5DB00755721 /* LogoutController.swift */; };
+		52E411CD1F09F64700755721 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E411CC1F09F64700755721 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		51A539B11F096373002B20CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51A539B41F096373002B20CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51A539B61F096373002B20CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52E411CA1F09F5DB00755721 /* LogoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutController.swift; sourceTree = "<group>"; };
+		52E411CC1F09F64700755721 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 		51A539A91F096373002B20CB /* gameofchat */ = {
 			isa = PBXGroup;
 			children = (
+				52E411C91F09F5BE00755721 /* Controller */,
 				51A539AA1F096373002B20CB /* AppDelegate.swift */,
 				51A539AC1F096373002B20CB /* ViewController.swift */,
 				51A539B11F096373002B20CB /* Assets.xcassets */,
@@ -59,6 +64,15 @@
 				51A539B61F096373002B20CB /* Info.plist */,
 			);
 			path = gameofchat;
+			sourceTree = "<group>";
+		};
+		52E411C91F09F5BE00755721 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52E411CA1F09F5DB00755721 /* LogoutController.swift */,
+				52E411CC1F09F64700755721 /* LoginController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E411CB1F09F5DB00755721 /* LogoutController.swift in Sources */,
 				51A539AD1F096373002B20CB /* ViewController.swift in Sources */,
+				52E411CD1F09F64700755721 /* LoginController.swift in Sources */,
 				51A539AB1F096373002B20CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
