@@ -20,8 +20,8 @@ class LoginController: UIViewController {
         return .lightContent
     }
 }
-extension UIColor{
-    convenience extension init(r: CGFloat ,g: CGFloat b: CGFloat ){
-//    self.init(red)
-    }
-}
+//extension UIColor{
+//    convenience extension init(r: CGFloat ,g: CGFloat b: CGFloat ){
+////    self.init(red)
+//    }
+//}

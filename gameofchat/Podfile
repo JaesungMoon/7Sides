@@ -8,5 +8,5 @@ target 'gameofchat' do
   # Pods for gameofchat
 
   pod 'Firebase/Core'
-
+  pod 'Firebase/Database'
 end
