@@ -45,7 +45,7 @@ class LoginController: UIViewController {
     
     let emailTextfield: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "email"
+        tf.placeholder = "Email"
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
@@ -59,10 +59,18 @@ class LoginController: UIViewController {
     
     let passwordTextfield: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "password"
+        tf.placeholder = "Password"
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.isSecureTextEntry = true
         return tf
+    }()
+    
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "logo_splash")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
     
     
@@ -74,12 +82,22 @@ class LoginController: UIViewController {
         
         view.addSubview(inputContainerView)
         view.addSubview(loginRegisterButton)
+        view.addSubview(profileImageView)
         
         setupInputsContainerView()
         setupLoginRegisterButton()
+        setupProfileImageView()
         
     }
 
+    func setupProfileImageView(){
+        //need x, y, width, height constaints
+        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: inputContainerView.topAnchor, constant: -12).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+    }
     
     func setupLoginRegisterButton(){
         //need x, y, width, height constaints
