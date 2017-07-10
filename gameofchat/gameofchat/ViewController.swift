@@ -16,7 +16,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        let ref = FIRDatabase.database().reference(fromURL: "https://gameofchat-995de.firebaseio.com/")
+        let ref = Database.database().reference(fromURL: "https://gameofchat-995de.firebaseio.com/")
         ref.updateChildValues(["someValue": 123123])
         //認証してないためpermission_denied
         
