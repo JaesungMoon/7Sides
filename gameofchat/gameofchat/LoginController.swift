@@ -109,7 +109,18 @@ class LoginController: UIViewController {
         return imageView
     }()
     
-    
+    lazy var loginRegistersegmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Login", "Register"])
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        sc.tintColor = .white
+        sc.selectedSegmentIndex = 1
+        sc.addTarget(self, action: #selector(handleLoginRigisterChange), for: .valueChanged)
+        return sc
+    }()
+    func handleLoginRigisterChange() {
+        let title = loginRegistersegmentedControl.titleForSegment(at: loginRegistersegmentedControl.selectedSegmentIndex)
+        loginRegisterButton.setTitle(title, for: .normal)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -119,17 +130,27 @@ class LoginController: UIViewController {
         view.addSubview(inputContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
+        view.addSubview(loginRegistersegmentedControl)
         
         setupInputsContainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
+        setupLoginRegisterSegmentedControl()
         
     }
-
+    
+    func setupLoginRegisterSegmentedControl(){
+        //need x, y, width, height constaints
+        loginRegistersegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginRegistersegmentedControl.bottomAnchor.constraint(equalTo: inputContainerView.topAnchor, constant: -12).isActive = true
+        loginRegistersegmentedControl.widthAnchor.constraint(equalTo: inputContainerView.widthAnchor, multiplier: 1).isActive = true
+        loginRegistersegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
+    }
+    
     func setupProfileImageView(){
         //need x, y, width, height constaints
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: inputContainerView.topAnchor, constant: -12).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: loginRegistersegmentedControl.topAnchor, constant: -12).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
