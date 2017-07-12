@@ -170,7 +170,7 @@ class LoginController: UIViewController {
     }
     
     var inputContainerViewHeightAnchor: NSLayoutConstraint?
-    var nameTextFieldViewHeightAnchor: NSLayoutConstraint?
+    var nameTextFieldViewHeightAnchor: NSLayoutDimension?
     
     func setupInputsContainerView(){
         //need x, y, width, height constaints
@@ -193,8 +193,8 @@ class LoginController: UIViewController {
         nameTextfield.topAnchor.constraint(equalTo: inputContainerView.topAnchor).isActive = true
         nameTextfield.widthAnchor.constraint(equalTo: inputContainerView.widthAnchor).isActive = true
         
-        nameTextFieldViewHeightAnchor = NSLayoutConstraint() inputContainerView.heightAnchor
-//        nameTextfield.heightAnchor.constraint(equalTo: nameTextFieldViewHeightAnchor, multiplier: 1/3).isActive = true
+        nameTextFieldViewHeightAnchor = inputContainerView.heightAnchor
+        nameTextfield.heightAnchor.constraint(equalTo: nameTextFieldViewHeightAnchor!, multiplier: 1/3).isActive = true
         
         nameSeparetorView.leftAnchor.constraint(equalTo: inputContainerView.leftAnchor).isActive = true
         nameSeparetorView.topAnchor.constraint(equalTo: nameTextfield.bottomAnchor).isActive = true
