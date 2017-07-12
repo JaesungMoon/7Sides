@@ -120,6 +120,10 @@ class LoginController: UIViewController {
     func handleLoginRigisterChange() {
         let title = loginRegistersegmentedControl.titleForSegment(at: loginRegistersegmentedControl.selectedSegmentIndex)
         loginRegisterButton.setTitle(title, for: .normal)
+        
+        // change height of inputcontainerView, but how??
+        inputContainerViewHeightAnchor?.constant = loginRegistersegmentedControl.selectedSegmentIndex == 0 ? 100 : 150
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -164,12 +168,18 @@ class LoginController: UIViewController {
         loginRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
+    
+    var inputContainerViewHeightAnchor: NSLayoutConstraint?
+    var nameTextFieldViewHeightAnchor: NSLayoutConstraint?
+    
     func setupInputsContainerView(){
         //need x, y, width, height constaints
         inputContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         inputContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
-        inputContainerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 150)
+            
+        inputContainerViewHeightAnchor?.isActive = true
         
         inputContainerView.addSubview(nameTextfield)
         inputContainerView.addSubview(nameSeparetorView)
@@ -182,8 +192,9 @@ class LoginController: UIViewController {
         nameTextfield.leftAnchor.constraint(equalTo: inputContainerView.leftAnchor, constant: 12).isActive = true
         nameTextfield.topAnchor.constraint(equalTo: inputContainerView.topAnchor).isActive = true
         nameTextfield.widthAnchor.constraint(equalTo: inputContainerView.widthAnchor).isActive = true
-        nameTextfield.heightAnchor.constraint(equalTo: inputContainerView.heightAnchor, multiplier: 1/3).isActive = true
         
+        nameTextFieldViewHeightAnchor = NSLayoutConstraint() inputContainerView.heightAnchor
+//        nameTextfield.heightAnchor.constraint(equalTo: nameTextFieldViewHeightAnchor, multiplier: 1/3).isActive = true
         
         nameSeparetorView.leftAnchor.constraint(equalTo: inputContainerView.leftAnchor).isActive = true
         nameSeparetorView.topAnchor.constraint(equalTo: nameTextfield.bottomAnchor).isActive = true
