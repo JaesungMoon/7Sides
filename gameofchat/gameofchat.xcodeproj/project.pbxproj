@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51A0B6E31F1BDAA700BD2AB0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A0B6E21F1BDAA700BD2AB0 /* AdSupport.framework */; };
 		51A539AB1F096373002B20CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A539AA1F096373002B20CB /* AppDelegate.swift */; };
 		51A539AD1F096373002B20CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A539AC1F096373002B20CB /* ViewController.swift */; };
 		51A539B21F096373002B20CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51A539B11F096373002B20CB /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		03668279EF1066E3E7FECD37 /* Pods-gameofchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gameofchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gameofchat/Pods-gameofchat.debug.xcconfig"; sourceTree = "<group>"; };
+		51A0B6E21F1BDAA700BD2AB0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		51A539A71F096373002B20CB /* gameofchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gameofchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51A539AA1F096373002B20CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51A539AC1F096373002B20CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51A0B6E31F1BDAA700BD2AB0 /* AdSupport.framework in Frameworks */,
 				A5762CBF77CF01F47CBF89F7 /* Pods_gameofchat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +91,7 @@
 		936F129838C29B20FD7C7BB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51A0B6E21F1BDAA700BD2AB0 /* AdSupport.framework */,
 				6F493F4DC8D917D0D7B3F500 /* Pods_gameofchat.framework */,
 			);
 			name = Frameworks;
@@ -216,7 +220,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
