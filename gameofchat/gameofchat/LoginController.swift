@@ -43,14 +43,15 @@ class LoginController: UIViewController {
     }
     
     func handleLogin() {
-        guard let emali = emailTextfield.text, let password = passwordTextfield.text else{
+        guard let email = emailTextfield.text, let password = passwordTextfield.text else{
             print("form is not vaild");
             return
         }
-        Auth.auth().signIn(withEmail: emali, password: password, completion: {
+        print("email = \(email)")
+        Auth.auth().signIn(withEmail: email, password: password, completion: {
             (user, error) in
             if error != nil {
-                print(error)
+                print(error as Any)
                 return
             }
             // successfully logged in our user
@@ -85,7 +86,7 @@ class LoginController: UIViewController {
                     print(error as Any)
                     return
                 }
-//                print("saved user successfully into Firebase db")
+                print("saved user successfully into Firebase db")
                 self.dismiss(animated: true, completion: nil)
             })
             
