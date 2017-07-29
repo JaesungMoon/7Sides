@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		513DEADF1F2CDF8A009814F2 /* LoginController+handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DEADE1F2CDF8A009814F2 /* LoginController+handle.swift */; };
 		51A0B6E31F1BDAA700BD2AB0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A0B6E21F1BDAA700BD2AB0 /* AdSupport.framework */; };
 		51A0B6E61F1CB0F300BD2AB0 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A0B6E51F1CB0F300BD2AB0 /* NewMessageController.swift */; };
 		51A0B6E91F1D118A00BD2AB0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A0B6E81F1D118A00BD2AB0 /* User.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		03668279EF1066E3E7FECD37 /* Pods-gameofchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gameofchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gameofchat/Pods-gameofchat.debug.xcconfig"; sourceTree = "<group>"; };
+		513DEADE1F2CDF8A009814F2 /* LoginController+handle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+handle.swift"; sourceTree = "<group>"; };
 		51A0B6E21F1BDAA700BD2AB0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		51A0B6E51F1CB0F300BD2AB0 /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		51A0B6E81F1D118A00BD2AB0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				52E411CC1F09F64700755721 /* LoginController.swift */,
 				51A0B6E51F1CB0F300BD2AB0 /* NewMessageController.swift */,
+				513DEADE1F2CDF8A009814F2 /* LoginController+handle.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51A0B6E61F1CB0F300BD2AB0 /* NewMessageController.swift in Sources */,
+				513DEADF1F2CDF8A009814F2 /* LoginController+handle.swift in Sources */,
 				51A539AD1F096373002B20CB /* MessageController.swift in Sources */,
 				52E411CD1F09F64700755721 /* LoginController.swift in Sources */,
 				51A0B6E91F1D118A00BD2AB0 /* User.swift in Sources */,
