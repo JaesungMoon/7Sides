@@ -96,8 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				52E411CC1F09F64700755721 /* LoginController.swift */,
-				51A0B6E51F1CB0F300BD2AB0 /* NewMessageController.swift */,
 				513DEADE1F2CDF8A009814F2 /* LoginController+handle.swift */,
+				51A0B6E51F1CB0F300BD2AB0 /* NewMessageController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
