@@ -1,0 +1,10 @@
+
+ゲームの仕組みを可視化する「マキネーション」とは？ デモで解説
+https://youtu.be/PsqaG_GLmvw?t=186
+
+Machinationの紹介
+http://www.slideshare.net/minahito/machination
+
+http://yosukem.hatenablog.com/entry/2013/07/02/103009
+マキネーションツールを用いた「ぷよぷよ」の分析
+
