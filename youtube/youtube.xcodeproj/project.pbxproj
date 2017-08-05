@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5139C3D31F35E73900B6A7E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139C3D21F35E73900B6A7E6 /* Extensions.swift */; };
+		5139C3D61F35E78D00B6A7E6 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139C3D51F35E78D00B6A7E6 /* VideoCell.swift */; };
 		517114DA1F320CBF00384B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517114D91F320CBF00384B2A /* AppDelegate.swift */; };
 		517114DC1F320CBF00384B2A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517114DB1F320CBF00384B2A /* HomeController.swift */; };
 		517114E11F320CBF00384B2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 517114E01F320CBF00384B2A /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5139C3D21F35E73900B6A7E6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5139C3D51F35E78D00B6A7E6 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		517114D61F320CBF00384B2A /* youtube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = youtube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		517114D91F320CBF00384B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		517114DB1F320CBF00384B2A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -33,6 +37,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5139C3D11F35E6FE00B6A7E6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5139C3D21F35E73900B6A7E6 /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5139C3D41F35E77400B6A7E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5139C3D51F35E78D00B6A7E6 /* VideoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5139C3D71F35E7BB00B6A7E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				517114DB1F320CBF00384B2A /* HomeController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		517114CD1F320CBF00384B2A = {
 			isa = PBXGroup;
 			children = (
@@ -52,8 +80,10 @@
 		517114D81F320CBF00384B2A /* youtube */ = {
 			isa = PBXGroup;
 			children = (
+				5139C3D71F35E7BB00B6A7E6 /* Controller */,
+				5139C3D41F35E77400B6A7E6 /* View */,
+				5139C3D11F35E6FE00B6A7E6 /* Helpers */,
 				517114D91F320CBF00384B2A /* AppDelegate.swift */,
-				517114DB1F320CBF00384B2A /* HomeController.swift */,
 				517114E01F320CBF00384B2A /* Assets.xcassets */,
 				517114E21F320CBF00384B2A /* LaunchScreen.storyboard */,
 				517114E51F320CBF00384B2A /* Info.plist */,
@@ -134,6 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				517114DC1F320CBF00384B2A /* HomeController.swift in Sources */,
+				5139C3D61F35E78D00B6A7E6 /* VideoCell.swift in Sources */,
+				5139C3D31F35E73900B6A7E6 /* Extensions.swift in Sources */,
 				517114DA1F320CBF00384B2A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
