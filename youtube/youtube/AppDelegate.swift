@@ -27,9 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //get rid of black bar underneath navbar
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        
-        
+        //not work for current status
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
         application.statusBarStyle = .lightContent
         
