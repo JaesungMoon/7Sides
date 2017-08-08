@@ -9,6 +9,13 @@
 import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    var videos: [Video] = {
+       var blankSpaceVideo = Video()
+        blankSpaceVideo.title = "Taylor Swift - FIVE"
+        blankSpaceVideo.thumbnailImageName = "hayeonsu"
+        return [blankSpaceVideo]
+    }()
+    
     let cellId = "cellId"
     
     override func viewDidLoad() {
@@ -32,6 +39,27 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         setupMenuBar()
         
+        setupNavBarButtons()
+        
+    }
+    
+    func setupNavBarButtons() {
+        let searchImage = UIImage(named: "trend")?.withRenderingMode(.alwaysOriginal)
+        let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
+        
+        
+        let moreImage = UIImage(named: "user")?.withRenderingMode(.alwaysOriginal)
+        let moreButton = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handleMore))
+        
+        navigationItem.rightBarButtonItems = [searchBarButtonItem, moreButton]
+        
+    }
+    
+    func handleSearch() {
+        
+    }
+    func handleMore() {
+        
     }
     
     let menuBar: MenuBar = {
@@ -40,6 +68,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }()
     
     private func setupMenuBar() {
+        navigationController?.hidesBarsOnSwipe = true
+        
         view.addSubview(menuBar)
         let height = ViewManager.navigationBarHeight(callFrom: self)
         print(height)
