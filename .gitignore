@@ -24,4 +24,10 @@ Podfile.lock
 *.swp
 !.gitkeep
 .DS_Store
-gameofchat/Pods
+
+gameofchat/Pods/*
+gameofchat/Podfile.lock
+
+
+FirebaseEx/Pods/*
+FirebaseEx/Podfile.lock
