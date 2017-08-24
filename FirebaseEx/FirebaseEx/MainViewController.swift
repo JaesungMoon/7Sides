@@ -32,11 +32,19 @@ class MainViewController: UIViewController {
         } else {
             print("ログイン中 id = \(Auth.auth().currentUser!.uid)")
             print("ログイン中 name = \(String(describing: Auth.auth().currentUser?.displayName))")
-            
-            
-            //もし既存ユーザーからログアウトしたい場合は下記を実行してください。
-            //            perform(#selector(handleLogout), with: nil, afterDelay: 0)
+                    
+//            perform(#selector(handleLogout), with: nil, afterDelay: 0)
         }
+    }
+    
+    /** ログアウト機能がある場合のログアウト処理*/
+    func handleLogout(){
+        do {
+            try Auth.auth().signOut()
+        }catch let logourError {
+            print(logourError)
+        }
+        handleShowLogin()
     }
     func handleShowLogin() {
         let authUI: FUIAuth? = FUIAuth.defaultAuthUI()
