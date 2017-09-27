@@ -44,23 +44,47 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func setupNavBarButtons() {
-        let searchImage = UIImage(named: "trend")?.withRenderingMode(.alwaysOriginal)
+        let searchImage = UIImage(named: "icon_menu")?.withRenderingMode(.alwaysOriginal)
         let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
         
         
-        let moreImage = UIImage(named: "user")?.withRenderingMode(.alwaysOriginal)
+        let moreImage = UIImage(named: "icon_menu")?.withRenderingMode(.alwaysOriginal)
         let moreButton = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handleMore))
         
         navigationItem.rightBarButtonItems = [searchBarButtonItem, moreButton]
         
     }
+    let blackView = UIView()
     
+    func handleMore() {
+        //show more
+        
+        if let window = UIApplication.shared.keyWindow {
+            
+            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+            
+            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
+            
+            window.addSubview(blackView)
+            blackView.frame = window.frame
+            blackView.alpha = 0
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.blackView.alpha = 1
+            })
+        }
+        
+        
+    }
+    func handleDismiss() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blackView.alpha = 0
+        })
+    }
     func handleSearch() {
         
     }
-    func handleMore() {
-        
-    }
+    
     
     let menuBar: MenuBar = {
         let mb = MenuBar()
