@@ -31,3 +31,7 @@ gameofchat/Podfile.lock
 
 FirebaseEx/Pods/*
 FirebaseEx/Podfile.lock
+
+
+MyFirstFirestore/Pods/*
+MyFirstFirestore/Podfile.lock
