@@ -66,11 +66,35 @@ class MyViewController: UIViewController {
         let blueValue = arc4random_uniform(6) + 1
         blueLabel.text = "\(blueValue)"
         
+        redLabel.text = nil
         evaluateWinner()
     }
     
     fileprivate func evaluateWinner() {
         winnerLabel.text = "Figuring out whe won..."
+        
+        if let redText = redLabel.text {
+            if let blueText = blueLabel.text {
+                if redText == blueText {
+                    winnerLabel.text = "Tie"
+                } else if redText > blueText {
+                    winnerLabel.text = "Red Won"
+                } else {
+                    winnerLabel.text = "Blue Won"
+                }
+            }
+            
+        }
+        
+        
+        
+//        if redLabel.text == blueLabel.text {
+//            winnerLabel.text = "Tie"
+//        } else if redLabel.text! > blueLabel.text! {
+//            winnerLabel.text = "Red Won"
+//        } else {
+//            winnerLabel.text = "Blue Won"
+//        }
     }
     
     
