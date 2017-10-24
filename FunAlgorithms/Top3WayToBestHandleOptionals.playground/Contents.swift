@@ -73,17 +73,14 @@ class MyViewController: UIViewController {
     fileprivate func evaluateWinner() {
         winnerLabel.text = "Figuring out whe won..."
         
-        if let redText = redLabel.text {
-            if let blueText = blueLabel.text {
-                if redText == blueText {
-                    winnerLabel.text = "Tie"
-                } else if redText > blueText {
-                    winnerLabel.text = "Red Won"
-                } else {
-                    winnerLabel.text = "Blue Won"
-                }
+        if let redText = redLabel.text, let blueText = blueLabel.text {
+            if redText == blueText {
+                winnerLabel.text = "Tie"
+            } else if redText > blueText {
+                winnerLabel.text = "Red Won"
+            } else {
+                winnerLabel.text = "Blue Won"
             }
-            
         }
         
         
