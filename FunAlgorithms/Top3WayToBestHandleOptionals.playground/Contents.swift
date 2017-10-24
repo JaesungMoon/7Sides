@@ -74,15 +74,14 @@ class MyViewController: UIViewController {
         
         winnerLabel.text = "Figuring out whe won..."
         
-        guard let redText = redLabel.text else {
-            winnerLabel.text = "Red value invalid"
-            return
-        }
-        guard let blueText = blueLabel.text else {
-            winnerLabel.text = "Blue value invalid"
+        // Basically here is a check for all valid values
+        guard let redText = redLabel.text, let blueText = blueLabel.text else {
+            // Promot error when value are invalid
+            winnerLabel.text = "Values are invalid..."
             return
         }
         
+        // Values are all good to go, perform the next bit of logic
         if redText == blueText {
             winnerLabel.text = "Tie"
         } else if redText > blueText {
@@ -90,15 +89,6 @@ class MyViewController: UIViewController {
         } else {
             winnerLabel.text = "Blue Won"
         }
-        
-        
-//        if redLabel.text == blueLabel.text {
-//            winnerLabel.text = "Tie"
-//        } else if redLabel.text! > blueLabel.text! {
-//            winnerLabel.text = "Red Won"
-//        } else {
-//            winnerLabel.text = "Blue Won"
-//        }
     }
     
     
