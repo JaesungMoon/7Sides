@@ -13,6 +13,7 @@
 		513BEC191F8FC4AB001AE43C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 513BEC181F8FC4AB001AE43C /* Assets.xcassets */; };
 		513BEC1C1F8FC4AB001AE43C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 513BEC1A1F8FC4AB001AE43C /* LaunchScreen.storyboard */; };
 		513BEC241F8FC4DA001AE43C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 513BEC231F8FC4DA001AE43C /* GoogleService-Info.plist */; };
+		51D201041FA64C0700E5AA61 /* Sweat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D201031FA64C0700E5AA61 /* Sweat.swift */; };
 		BF1EE37D4FB08DE68066597B /* Pods_MyFirstFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29FDBA1C92F85D3297F8A74B /* Pods_MyFirstFirestore.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		513BEC1B1F8FC4AB001AE43C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		513BEC1D1F8FC4AB001AE43C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		513BEC231F8FC4DA001AE43C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		51D201031FA64C0700E5AA61 /* Sweat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sweat.swift; sourceTree = "<group>"; };
 		CB478CBCAEC10349D147EBDC /* Pods-MyFirstFirestore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFirstFirestore.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFirstFirestore/Pods-MyFirstFirestore.release.xcconfig"; sourceTree = "<group>"; };
 		D41C900CEC94592D4A16B38B /* Pods-MyFirstFirestore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFirstFirestore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFirstFirestore/Pods-MyFirstFirestore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 				513BEC1A1F8FC4AB001AE43C /* LaunchScreen.storyboard */,
 				513BEC1D1F8FC4AB001AE43C /* Info.plist */,
 				513BEC231F8FC4DA001AE43C /* GoogleService-Info.plist */,
+				51D201031FA64C0700E5AA61 /* Sweat.swift */,
 			);
 			path = MyFirstFirestore;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51D201041FA64C0700E5AA61 /* Sweat.swift in Sources */,
 				513BEC141F8FC4AB001AE43C /* ViewController.swift in Sources */,
 				513BEC121F8FC4AB001AE43C /* AppDelegate.swift in Sources */,
 			);
@@ -385,6 +389,7 @@
 				513BEC221F8FC4AB001AE43C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

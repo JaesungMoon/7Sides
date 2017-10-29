@@ -21,19 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        let db = Firestore.firestore()
         
-        db.collection("cities").document("LA").setData([
-            "name": "Los Angeles",
-            "state": "CA",
-            "country": "USA"
-        ]) { (error: Error?) in
-            if let error = error {
-                print("\(error.localizedDescription)")
-            } else {
-                print("Document was successfully created")
-            }
-        }
+        
+        
         
         return true
     }
