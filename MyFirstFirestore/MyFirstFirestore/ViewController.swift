@@ -20,8 +20,38 @@ class ViewController: UITableViewController {
         
         db = Firestore.firestore()
         
+        loadData()
+        checkForUpdate()
+    }
+    
+    func loadData() {
+        db.collection("sweats").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                self.sweatArray = querySnapshot!.documents.flatMap({Sweat(dictionary: $0.data())})
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
+    func checkForUpdate() {
+        db.collection("sweats").whereField("timeStamp", isGreaterThan: Date()).addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else { return }
+            
+            snapshot.documentChanges.forEach({ (diff) in
+                if diff.type == .added {
+                    self.sweatArray.append(Sweat(dictionary: diff.document.data())!)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            })
+        }
+    }
+    
     @IBAction func handleAdd(_ sender: Any) {
         let composeAlert = UIAlertController(title: "New Sweat", message: "Enter your name and message", preferredStyle: .alert)
         composeAlert.addTextField { (textField) in
@@ -37,7 +67,7 @@ class ViewController: UITableViewController {
                 let newSweat = Sweat(name: name, content: content, timeStamp: Date())
                 
                 var ref: DocumentReference? = nil
-                ref = self.db.collection("sweat").addDocument(data: newSweat.dictionary) {
+                ref = self.db.collection("sweats").addDocument(data: newSweat.dictionary) {
                     error in
                     
                     if let error = error {
@@ -57,11 +87,14 @@ class ViewController: UITableViewController {
 }
 extension ViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return sweatArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellId", for: indexPath)
+        let sweat = sweatArray[indexPath.row]
+        cell.textLabel?.text = "\(sweat.name): \(sweat.content)"
+        cell.detailTextLabel?.text = "\(sweat.timeStamp)"
         return cell
     }
 }
