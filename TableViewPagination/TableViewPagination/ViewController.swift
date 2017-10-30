@@ -12,12 +12,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var data = [String]()
-    var count = 0
+    
+    var refresher: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let _ = loadMore()
+        
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action: #selector(populate), for: .valueChanged)
+        tableView.addSubview(refresher)
     }
 
 
@@ -37,19 +43,36 @@ extension ViewController: UITableViewDataSource {
         }
         return cell
     }
+    
+    func populate() {
+        DispatchQueue.global().async {
+            sleep(2)
+            self.data.removeAll()
+            for i in 1...100 {
+                self.data.append("refresh item: \(i)")
+            }
+            DispatchQueue.main.async {// what's diffrents between OperationQueue.main.addOperation
+                self.refresher.endRefreshing()
+                self.tableView.reloadData()
+            }
+            
+        }
+    }
+    
     func loadMore() ->[IndexPath] {
         var paths = [IndexPath]()
         for _ in 0..<20 {
-            count += 1
-            data.append("items: \(count)")
+            
+            data.append("load more items: \(data.count)")
             paths.append(IndexPath(row: data.count - 1, section: 0))
         }
         return paths
     }
+    
     func insertMore() {
         DispatchQueue.global().async {
             sleep(2)
-        let paths = self.loadMore()
+            let paths = self.loadMore()
             OperationQueue.main.addOperation {
                 self.tableView.beginUpdates()
                 self.tableView.insertRows(at: paths, with: .top)
