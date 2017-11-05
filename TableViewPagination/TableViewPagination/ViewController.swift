@@ -23,7 +23,11 @@ class ViewController: UIViewController {
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: #selector(populate), for: .valueChanged)
-        tableView.addSubview(refresher)
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refresher
+        } else {
+            tableView.addSubview(refresher)
+        }
     }
 
 
