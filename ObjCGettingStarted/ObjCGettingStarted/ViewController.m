@@ -13,17 +13,24 @@
 @end
 
 @implementation ViewController
-
+NSString *cellId = @"cellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.navigationItem.title = @"Courses";
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
+
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:cellId];
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    cell.textLabel.text = @"Course Name";
+    return cell;
 }
-
 
 @end
