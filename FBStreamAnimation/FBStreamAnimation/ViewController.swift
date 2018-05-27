@@ -12,12 +12,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        addCurvedViewAnim()
+//        addCurvedViewAnim()
         
+        
+        (0...10).forEach{ (_) in
+            addCurvedViewAnim()
+        }
+        
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        
+    }
+    func addCurvedViewAnim() {
         let curvedView = CurvedView(frame: CGRect(x: -view.frame.width, y: 0, width: view.frame.width*2, height: view.frame.height))
         LOG_TRACE(view.frame)
-        curvedView.backgroundColor = .yellow
+        curvedView.backgroundColor = .clear
         view.addSubview(curvedView)
-
+        
         UIView.animate(withDuration: 2.0, delay: 0.0, options: [.repeat, .curveLinear,], animations: {
             LOG_TRACE("anim curvedView.center.x = \(curvedView.center.x)")
             curvedView.center.x += self.view.frame.width
@@ -25,14 +37,12 @@ class ViewController: UIViewController {
         }, completion: { result in
             LOG_TRACE("cimp curvedView.center.x = \(curvedView.center.x)")
         })
-        
-//        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
-        
     }
-    
     func handleTap() {
-        (0...1).forEach{ (_) in
-            generateAnimatedViews()
+        (0...10).forEach{ (_) in
+//            generateAnimatedViews()
+            let rr = arc4random() % 5
+            LOG_TRACE("rr = \(rr)")
         }
     }
     
@@ -62,13 +72,13 @@ func customPath(x: CGFloat) -> UIBezierPath {
     path.move(to: CGPoint(x: 0, y: y))
 
     let endPoint = CGPoint(x: x/2, y: y)
-    let cp1 = CGPoint(x: x / 2 / 3, y: y - 100)
-    let cp2 = CGPoint(x: x / 2 / 3 * 2, y: y + 100)
+    let cp1 = CGPoint(x: x / 2 / 3, y: y - y)
+    let cp2 = CGPoint(x: x / 2 / 3 * 2, y: y + y)
     path.addCurve(to: endPoint, controlPoint1: cp1, controlPoint2: cp2)
     
     let endPoint2 = CGPoint(x: x, y: y)
-    let cp21 = CGPoint(x: x / 2 + x / 2 / 3, y: y - 100)
-    let cp22 = CGPoint(x: x / 2 + x / 2 / 3 * 2, y: y + 100)
+    let cp21 = CGPoint(x: x / 2 + x / 2 / 3, y: y - y)
+    let cp22 = CGPoint(x: x / 2 + x / 2 / 3 * 2, y: y + y)
     path.addCurve(to: endPoint2, controlPoint1: cp21, controlPoint2: cp22)
     
     return path
@@ -80,12 +90,12 @@ class CurvedView: UIView {
     override func draw(_ rect: CGRect) {
         //do some fancy curve drawing
         width = rect.width
-        
-        path = customPath(x: rect.width)
+        path = customPath(x: rect.width + (rect.width/2 * CGFloat(arc4random() % 3)))
         path.lineWidth = 3
         path.stroke()
         
     }
+    
     func setPath(y: CGFloat) {
         LOG_TRACE("y = \(y)")
         path = customPath(x: width)

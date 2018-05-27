@@ -12,11 +12,161 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    enum CommandType {
+        case add
+        case get
+        case remove
+        case evict
+        case invalid // 無効なパラメーター
+    }
+    struct CommandStruct {
+        var commandType: CommandType = .invalid
+        var commandKey: Int?
+        var commandValue: Int?
+    }
+    struct ValueAndUpdateTime {
+        let value: Int
+        let updateTime: TimeInterval
+    }
+var cacheMap = [Int: ValueAndUpdateTime]()
+    
+    func handleCommand(src: CommandStruct) -> String {
+        var resultValue = ""
+        switch(src.commandType) {
+        case .add:
+            if let key = src.commandKey, let value = src.commandValue {
+                let today = Date();
+                let now = today.timeIntervalSince1970
+                cacheMap[key] = ValueAndUpdateTime(value: value, updateTime: now)
+            }
+        case .get:
+            if let key = src.commandKey, let value = cacheMap[key]?.value {
+                resultValue = "\(value)"
+                let today = Date();
+                let now = today.timeIntervalSince1970
+                cacheMap[key] = ValueAndUpdateTime(value: value, updateTime: now)
+            } else {
+                resultValue = "-1"
+            }
+        case .remove:
+            if let key = src.commandKey {
+                if (cacheMap.removeValue(forKey: key) != nil) {
+                } else {
+                    resultValue = "-1"
+                }
+            }
+        case .evict:
+            let cacheArray = cacheMap.sorted() { $0.value.updateTime < $1.value.updateTime}
+            if let lastItem = cacheArray.last {
+                if (cacheMap.removeValue(forKey: lastItem.key)) != nil {
+                } else {
+                    resultValue = "-1"
+                }
+            }
+            break
+        default:
+            assert(false)
+            break
+            
+        }
+        return resultValue
+    }
 
-
+    func parseCommand(inputs: [String]) -> CommandStruct {
+        var result = CommandStruct()
+        if let cmd = inputs.first {
+            switch cmd {
+            case "add":
+                if inputs.count == 3, let key = Int(inputs[1]), let value = Int(inputs[2]) {
+                    result.commandType = .add
+                    result.commandKey = key
+                    result.commandValue = value
+                } else {
+                    result.commandType = .invalid
+                }
+            case "get":
+                if inputs.count == 2, let key = Int(inputs[1]) {
+                    result.commandType = .get
+                    result.commandKey = key
+                } else {
+                    result.commandType = .invalid
+                }
+                print("get")
+            case "remove":
+                if inputs.count == 2, let key = Int(inputs[1]) {
+                    result.commandType = .remove
+                    result.commandKey = key
+                } else {
+                    result.commandType = .invalid
+                }
+                print("remove")
+            default:
+                result.commandType = .invalid
+            }
+        }
+        return result
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        var cmd: String? = "add 4 3"
+        
+        
+        
+//        while true {
+            if let inputCommand = cmd {
+                let inputs = inputCommand.components(separatedBy: " ")
+                let command = parseCommand(inputs: inputs)
+                let result = handleCommand(src: command)
+                print("result = \(result)")
+//                if commandType = .exit {
+//                    print("stop")
+//                    break
+//                }
+                
+            
+            }
+//            break
+//        }
+
+
+            
+        
+
+        
+        return true
+//
+//        var dupulicateList = [Character : Int]()
+//        var sumCount = 0
+////        if let input = readLine() {
+//        let input = "foobarbaz"
+//            for char in input {
+//                if let count = dupulicateList[char], count == 1 {
+//                    dupulicateList[char] = count + 1
+//                } else {
+//                    dupulicateList[char] = 1
+//                }
+//            }
+////        }
+        
+        
+//        var str = "124"
+//        print("str.count = \(str.count)")
+        
+//        for char in str {
+//             char
+//        }
+        
+        if let name = readLine() {
+            
+            print("Hello \(name)!")
+        }
+//        for _ in 0..<10 {
+//            print("hello")
+//        }
+        return true
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
