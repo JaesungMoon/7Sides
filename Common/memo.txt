@@ -1,0 +1,5 @@
+
+Frame: Size and location of view within superview's coordinate system
+Picture Frame
+
+Bounds: Size and content origin of a view in its own coordinate system
